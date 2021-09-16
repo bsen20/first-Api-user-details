@@ -4,10 +4,10 @@ import bodyParser from "body-parser";
 import usersRoutes from "./Routes/users.js";
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 //middleware
-app.use(bodyParser.json());
+app.use(express.json());
 
 //routes
 
@@ -20,5 +20,5 @@ app.get("/", (req, res) => {
 
 //listeners
 app.listen(PORT, () =>
-  console.log("Server Running on port: http://localhost", PORT)
+  console.log(`Server Running on port: http://localhost:${PORT}`)
 );
